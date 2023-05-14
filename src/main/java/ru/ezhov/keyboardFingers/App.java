@@ -1,4 +1,4 @@
-package ru.ezhov.keyFingger;
+package ru.ezhov.keyboardFingers;
 
 import com.sun.awt.AWTUtilities;
 
@@ -84,20 +84,17 @@ public class App {
         AWTUtilities.setWindowOpacity(frame, op);
     }
 
-    class MouseMoveWindowListener extends MouseAdapter
-    {
+    class MouseMoveWindowListener extends MouseAdapter {
 
         private Point diffOnScreen;
         private Component component;
 
-        public MouseMoveWindowListener(Component component)
-        {
+        public MouseMoveWindowListener(Component component) {
             this.component = component;
         }
 
         @Override
-        public void mousePressed(MouseEvent e)
-        {
+        public void mousePressed(MouseEvent e) {
             Point pressedPointLocationOnScreen = e.getLocationOnScreen();
             int x = pressedPointLocationOnScreen.x - component.getLocationOnScreen().x;
             int y = pressedPointLocationOnScreen.y - component.getLocationOnScreen().y;
@@ -105,8 +102,7 @@ public class App {
         }
 
         @Override
-        public void mouseDragged(MouseEvent e)
-        {
+        public void mouseDragged(MouseEvent e) {
             Point nowMouseLocation = e.getLocationOnScreen();
             component.setLocation(
                     nowMouseLocation.x - diffOnScreen.x,
